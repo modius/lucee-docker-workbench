@@ -1,3 +1,4 @@
 [submodule "code"]
 	path = code
 	url = https://github.com/modius/lucee4-website.git
+	branch = master
