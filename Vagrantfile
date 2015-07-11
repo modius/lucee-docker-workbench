@@ -10,7 +10,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "dockerhost", autostart: false do |dh|
     dh.vm.box = "dduportal/boot2docker"
     dh.vm.network "private_network", ip: "192.168.33.11"
-    #dh.vm.synced_folder "./code", "/opt/lucee/tomcat"
     dh.vm.synced_folder ".", "/vagrant", type: "virtualbox"
 
     # Map Docker VM service ports to VM host
@@ -32,7 +31,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       docker.build_dir = "./docker/lucee"
       docker.volumes = %w(/vagrant/code:/var/www)
       docker.volumes = [
-				"/vagrant/code:/var/www",
         "/vagrant/logs/lucee:/opt/lucee/web/logs",
         "/vagrant/logs/nginx:/var/log/nginx",
         "/vagrant/logs/supervisor:/var/log/supervisor",
