@@ -11,6 +11,7 @@ Dependencies: Virtualbox, `git v1.6.5`, `vagrant v1.6.3`
 git clone --recursive https://github.com/modius/mod-env-workbench
 cd mod-env-workbench
 vagrant up
+open http://192.168.33.11:8000/
 ```
 
 ## Anatomy of the Project
