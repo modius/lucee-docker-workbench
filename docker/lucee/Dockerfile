@@ -1,4 +1,4 @@
-FROM boomfish/lucee-nginx:4.5
+FROM lucee/lucee-nginx:latest
 
 MAINTAINER Geoff Bowers <modius@daemon.com.au>
 
