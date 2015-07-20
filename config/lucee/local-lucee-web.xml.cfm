@@ -110,7 +110,7 @@ Path placeholders:
 			for example when you define physical you can partiquel overwrite the archive.
 		-->
 		
-		<!-- <mapping archive="{lucee-web}/context/lucee-context.lar" physical="{lucee-web}/context/" primary="physical" readonly="yes" toplevel="yes" trusted="true" virtual="/lucee/"/>  -->
+		<mapping archive="{lucee-web}/context/lucee-context.lar" physical="{lucee-web}/context/" primary="physical" readonly="yes" toplevel="yes" trusted="true" virtual="/lucee/"/> 
 		
 	</mappings>
 

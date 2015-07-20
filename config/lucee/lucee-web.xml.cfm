@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><cfLuceeConfiguration hspw="" salt="12FB74C3-69CD-4348-A839A29127ED8B7C" version="4.5"><cfabort/>
+<?xml version="1.0" encoding="UTF-8"?><cfLuceeConfiguration hspw="" salt="" version="4.5"><cfabort/>
 
 <!--
 Path placeholders:
@@ -110,7 +110,7 @@ Path placeholders:
 			for example when you define physical you can partiquel overwrite the archive.
 		-->
 		
-		<!-- <mapping archive="{lucee-web}/context/lucee-context.lar" physical="{lucee-web}/context/" primary="physical" readonly="yes" toplevel="yes" trusted="true" virtual="/lucee/"/>  -->
+		<mapping archive="{lucee-web}/context/lucee-context.lar" physical="{lucee-web}/context/" primary="physical" readonly="yes" toplevel="yes" trusted="true" virtual="/lucee/"/> 
 		
 	</mappings>
 
