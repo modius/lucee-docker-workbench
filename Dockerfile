@@ -8,11 +8,10 @@ MAINTAINER Geoff Bowers <modius@daemon.com.au>
 # COPY setenv.sh /usr/local/tomcat/bin/
 
 # NGINX configs
-COPY nginx/ /etc/nginx/
+COPY config/nginx/ /etc/nginx/
+
 # Lucee server configs
-COPY lucee/ /opt/lucee/web/
+COPY config/lucee/ /opt/lucee/web/
 
 # Deploy codebase to container
-RUN apt-get update && apt-get -y autoremove && apt-get install -y git-core
-RUN rm -rf /var/www/*
-RUN git clone -b master --single-branch https://github.com/modius/lucee4-website.git /var/www
+COPY code /var/www
