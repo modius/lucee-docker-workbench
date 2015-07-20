@@ -33,8 +33,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       # local development code, lucee config & logs
       docker.volumes = [
         "/vagrant/code:/var/www",
-        "/vagrant/config/lucee/lucee-server.xml:/opt/lucee/server/lucee-server/context/lucee-server.xml",
-        "/vagrant/config/lucee/lucee-web.xml.cfm:/opt/lucee/web/lucee-web.xml.cfm",
+        "/vagrant/config/lucee/local-lucee-server.xml:/opt/lucee/server/lucee-server/context/lucee-server.xml",
+        "/vagrant/config/lucee/local-lucee-web.xml.cfm:/opt/lucee/web/lucee-web.xml.cfm",
         "/vagrant/logs/lucee:/opt/lucee/web/logs",
         "/vagrant/logs/nginx:/var/log/nginx",
         "/vagrant/logs/supervisor:/var/log/supervisor",

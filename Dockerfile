@@ -10,8 +10,9 @@ MAINTAINER Geoff Bowers <modius@daemon.com.au>
 # NGINX configs
 COPY config/nginx/ /etc/nginx/
 
-# Lucee server configs
-COPY config/lucee/ /opt/lucee/web/
+# Lucee server PRODUCTION configs
+COPY config/lucee/lucee-server.xml /opt/lucee/server/lucee-server/context/lucee-server.xml
+COPY config/lucee/lucee-web.xml.cfm /opt/lucee/web/lucee-web.xml.cfm
 
 # Deploy codebase to container
 COPY code /var/www
