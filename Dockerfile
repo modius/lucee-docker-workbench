@@ -1,4 +1,4 @@
-FROM lucee/lucee-nginx:latest
+FROM quay.io/lucee/lucee4-nginx:4.5.2
 
 MAINTAINER Geoff Bowers <modius@daemon.com.au>
 
