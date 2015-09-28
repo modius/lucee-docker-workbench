@@ -1,0 +1,20 @@
+lb:
+  image: 'tutum/haproxy:latest'
+  links:
+    - lucee
+  ports:
+    - '80:80'
+  restart: always
+  roles:
+    - global
+  tags:
+    - stage
+lucee:
+  image: 'tutum.co/modius/workbench:latest'
+  deployment_strategy: high_availability
+  autoredeploy: true
+  environment:
+    - EXCLUDE_PORTS=8080
+  tags:
+    - stage
+  target_num_containers: 2
