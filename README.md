@@ -10,9 +10,14 @@ Dependencies: Virtualbox, `git v1.6.5`, `vagrant v1.7.3` (install all of these f
 ```
 git clone --recursive https://github.com/modius/lucee-docker-workbench
 cd lucee-docker-workbench
-vagrant up dockerhost
 vagrant up lucee
-open http://192.168.33.11:8000/
+```
+
+The location depends on your set up but it will either be the VMs IP address or the workbench URL if you are using the [Daemonite Docker Workbench](https://github.com/daemonite/workbench) for Lucee development:
+```
+open http://192.168.56.100:9000/
+or
+open http://workbench:9000/
 ```
 
 _Note, the Vagrant box dduportal/boot2docker is about 30Mb and the lucee container image is about 500Mb so you need to download 530Mb to get things going.  If you have a mediocre internet connection you might want to think about taking lunch. These only need to be downloaded the once._
@@ -30,7 +35,6 @@ lucee-docker-workbench/
 ├── code (-> git submodule)
 ├── config
 │   ├── lucee
-│   │   └── lucee-server.xml
 │   │   └── lucee-web.xml.cfm
 │   └── nginx
 │       ├── conf.d
