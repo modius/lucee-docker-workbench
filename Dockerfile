@@ -1,4 +1,4 @@
-FROM quay.io/lucee/lucee4-nginx:4.5.2
+FROM lucee/lucee-nginx
 
 MAINTAINER Geoff Bowers <modius@daemon.com.au>
 
@@ -11,7 +11,6 @@ MAINTAINER Geoff Bowers <modius@daemon.com.au>
 COPY config/nginx/ /etc/nginx/
 
 # Lucee server PRODUCTION configs
-COPY config/lucee/lucee-server.xml /opt/lucee/server/lucee-server/context/lucee-server.xml
 COPY config/lucee/lucee-web.xml.cfm /opt/lucee/web/lucee-web.xml.cfm
 
 # Deploy codebase to container
