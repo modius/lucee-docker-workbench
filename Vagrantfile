@@ -3,9 +3,7 @@
 ##################################################
 Vagrant.require_version ">= 1.7.3"
 
-PROJECT_NAME = "lucee"
-PROJECT_ENV = "lucee-docker-workbench"
-PROJECT_PORT = "9000" # workbench
+PROJECT_ENV = File.basename(Dir.getwd)
 
 if File.exist?('../Vagrantfile')
   WORKBENCH_HOST = "workbench"
@@ -23,10 +21,10 @@ Vagrant.configure("2") do |config|
   ##################################################
   config.vm.define "lucee", autostart: true do |lucee|
     lucee.vm.provider "docker" do |docker|
-      docker.name = PROJECT_PORT + "-" + PROJECT_NAME
+      docker.name = PROJECT_ENV
       docker.build_dir = "."
       docker.env = {
-        VIRTUAL_HOST: "lucee.dev"
+        VIRTUAL_HOST: PROJECT_ENV + ".*, lucee.*"
       }
       # local development code, lucee config & logs
       docker.volumes = [
@@ -37,10 +35,14 @@ Vagrant.configure("2") do |config|
         "/vagrant/" + PROJECT_ENV + "/logs/supervisor:/var/log/supervisor",
         "/vagrant/" + PROJECT_ENV + "/logs/tomcat:/usr/local/tomcat/logs"
         ]
-      docker.ports = [PROJECT_PORT + ":80"]
       docker.vagrant_machine = WORKBENCH_HOST
       docker.vagrant_vagrantfile = WORKBENCH_VAGRANTFILE
+      docker.force_host_vm = true
     end
+    puts '############################################################'
+    puts '#' + PROJECT_ENV.upcase
+    puts '#  - hosted at: http://' + PROJECT_ENV + '.dev'
+    puts '############################################################'
   end
 
 
@@ -57,6 +59,14 @@ Vagrant.configure("2") do |config|
       vb.memory = 2048
       vb.customize ["modifyvm", :id, "--nictype2", "virtio"]
     end
+
+    puts '############################################################'
+    puts '#  WARNING: BACKUP HOST... http://192.168.56.100'
+    puts '# '
+    puts '#  Could not find Workbench Boot2Docker. Consider Setting'
+    puts '#  up the complete development environment:'
+    puts '#    https://github.com/Daemonite/workbench'
+    puts '############################################################'
   end
 
 # /config
