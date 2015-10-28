@@ -15,9 +15,15 @@ vagrant up lucee
 
 The location depends on your set up but it will either be the VMs IP address or the workbench URL if you are using the [Daemonite Docker Workbench](https://github.com/daemonite/workbench) for Lucee development:
 ```
-open http://192.168.56.100:9000/
+open http://192.168.56.100/
 or
-open http://workbench:9000/
+open http://lucee-docker-workbench.dev/
+```
+
+Lucee admin is **open and not password protected** at:
+
+```
+open http://lucee-docker-workbench.dev/lucee/admin/web.cfm
 ```
 
 _Note, the Vagrant box dduportal/boot2docker is about 30Mb and the lucee container image is about 500Mb so you need to download 530Mb to get things going.  If you have a mediocre internet connection you might want to think about taking lunch. These only need to be downloaded the once._

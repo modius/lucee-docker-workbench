@@ -40,7 +40,7 @@ Vagrant.configure("2") do |config|
       docker.force_host_vm = true
     end
     puts '############################################################'
-    puts '#' + PROJECT_ENV.upcase
+    puts '# ' + PROJECT_ENV.upcase
     puts '#  - hosted at: http://' + PROJECT_ENV + '.dev'
     puts '############################################################'
   end
