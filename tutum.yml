@@ -1,6 +1,0 @@
-workbench-simple:
-  image: 'tutum.co/modius/workbench:latest'
-  environment:
-    - EXCLUDE_PORTS=80
-    - VIRTUAL_HOST=workbench-simple.modius.io
-  target_num_containers: 2

@@ -1,8 +1,0 @@
-#!/bin/sh
-git --version
-echo "Init submodule "
-git submodule init
-echo "Update submodule "
-git submodule update --force
-echo "Submodule status "
-git submodule status
