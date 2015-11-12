@@ -1,5 +1,6 @@
 ##################################################
 # Workbench Settings
+# - see https://github.com/daemonite/workbench
 ##################################################
 Vagrant.require_version ">= 1.7.3"
 

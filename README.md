@@ -2,6 +2,7 @@
 
 Vagrant based Docker workbench for a Lucee development pipeline.  This is a project template that can be exported and used as the basis for Lucee development in a containerised world.
 
+_For more information on this Workbench project format, see the [Daemonite Workbench Project](https://github.com/daemonite/workbench)_
 
 ## Installation
 
@@ -13,7 +14,7 @@ cd lucee-docker-workbench
 vagrant up lucee
 ```
 
-The location depends on your set up but it will either be the VMs IP address or the workbench URL if you are using the [Daemonite Docker Workbench](https://github.com/daemonite/workbench) for Lucee development:
+The location depends on your set up but it will either be the VMs IP address or the workbench URL if you are using for Lucee development:
 ```
 open http://192.168.56.100/
 or
