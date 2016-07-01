@@ -2,32 +2,28 @@
 
 Vagrant based Docker workbench for a Lucee development pipeline.  This is a project template that can be exported and used as the basis for Lucee development in a containerised world.
 
-_For more information on this Workbench project format, see the [Daemonite Workbench Project](https://github.com/daemonite/workbench)_
+**For more information on this Docker Workbench project format, see the [Daemonite Docker Workbench Project](https://github.com/justincarter/docker-workbench)**
 
 ## Installation
 
-Dependencies: Virtualbox, `git v1.6.5`, `vagrant v1.7.3` (install all of these first!)
+Dependencies: Running `docker-machine`, see https://github.com/justincarter/docker-workbench
 
 ```
 git clone --recursive https://github.com/modius/lucee-docker-workbench
 cd lucee-docker-workbench
-vagrant up lucee
+docker-compose up
 ```
 
 The location depends on your set up but it will either be the VMs IP address or the workbench URL if you are using for Lucee development:
 ```
-open http://192.168.56.100/
-or
-open http://lucee-docker-workbench.dev/
+open http://lucee.192.168.99.100.nip.io/
 ```
 
 Lucee admin is **open and not password protected** at:
 
 ```
-open http://lucee-docker-workbench.dev/lucee/admin/web.cfm
+open http://lucee.192.168.99.100.nip.io/lucee/admin/web.cfm
 ```
-
-_Note, the Vagrant box dduportal/boot2docker is about 30Mb and the lucee container image is about 500Mb so you need to download 530Mb to get things going.  If you have a mediocre internet connection you might want to think about taking lunch. These only need to be downloaded the once._
 
 ## Anatomy of the Project
 
@@ -35,10 +31,10 @@ The project structure provides an environment for local Docker development, and 
 
 ```
 lucee-docker-workbench/
+├── docker-compose.yml
 ├── Dockerfile
 ├── LICENSE
 ├── README.md
-├── Vagrantfile
 ├── code (-> git submodule)
 ├── config
 │   ├── lucee
@@ -54,11 +50,8 @@ lucee-docker-workbench/
     └── tomcat
 ```
 
-`Vagrantfile`
-Split into two parts: the **dockerhost** virtual machine running Docker 1.7 and a separate container definition for running the **lucee** container.
-
-- `vagrant up lucee` - brings the environment up and running
-- `vagrant reload lucee` to rebuild the container image on demand (ignore any errors)
+`docker-compose.yml`
+Defines how your container should spin up; including environment variables and volumes.
 
 `./Dockerfile`
 A sample Dockerfile for building a Lucee application. Use this to build an image externally for deployment.  Make sure that the contents of `code` are replicated here otherwise your container will only work locally.
@@ -72,44 +65,5 @@ _Note, you will need to update your Dockerfile with the same code base in order 
 Config files for customising the container.  The container needs to be re-built any time you make changes to these configuration files.
 
 `./logs`
-The example container will automatically write logs into this directory tree to make development easier. Logs are transient and should never be committed to the repo.  The logs are mapped via the volumes nominated in the `Vagrantfile`.
-
-## Troubleshooting
-
-Sometimes when you are mucking around with your container you get an image built but not properly deployed.
-
-You might get an error like this:
-```
-Stderr: Error response from daemon: Conflict. The name "lucee" is already in use by container 0dc57610816b. You have to delete (or rename) that container to be able to reuse that name.
-```
-
-If you check the status of your vagrant set up with `vagrant status` you may see the lucee container in a "preparing" state:
-```
-$ vagrant status
-Current machine states:
-
-dockerhost                running (virtualbox)
-lucee                     preparing (docker)
-```
-
-If this happens, you need to manually clean up the containers and `vagrant up lucee` again.  Manual clean-up is pretty simple if you know your way about:
-
-Logon to the Boot2Docker VM:
-```
-$ vagrant ssh dockerhost
-```
-
-List all the containers:
-```
-docker@boot2docker:~$ docker ps -a
-CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS               NAMES
-0dc57610816b        a97ead0ec4bf        "supervisord -c /etc   11 minutes ago                                              lucee
-```
-
-Remove the rogue container:
-```
-docker@boot2docker:~$ docker rm lucee
-lucee
-```
-
+The example container will automatically write logs into this directory tree to make development easier. Logs are transient and should never be committed to the repo.  The logs are mapped via the volumes nominated in the `docker-compose.yml`.
 
