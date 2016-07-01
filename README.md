@@ -19,7 +19,7 @@ The location depends on your set up but it will either be the VMs IP address or 
 open http://lucee.192.168.99.100.nip.io/
 ```
 
-Lucee admin is **open and not password protected** at:
+Lucee admin is open (ie. insecure) and uses the password `docker`:
 
 ```
 open http://lucee.192.168.99.100.nip.io/lucee/admin/web.cfm
