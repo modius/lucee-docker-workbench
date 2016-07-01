@@ -1,6 +1,6 @@
 # Lucee Docker Workbench
 
-Vagrant based Docker workbench for a Lucee development pipeline.  This is a project template that can be exported and used as the basis for Lucee development in a containerised world.
+Docker workbench project template for a Lucee development pipeline; export files to use as the base for Lucee development in a containerised world.
 
 **For more information on this Docker Workbench project format, see the [Daemonite Docker Workbench Project](https://github.com/justincarter/docker-workbench)**
 
