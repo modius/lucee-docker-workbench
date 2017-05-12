@@ -124,7 +124,7 @@ Path placeholders:
 		lock-timeout   - 	define how long a request wait for a lock
 		case-sensitive	-	is http handled case-sensitive or not
 	 	-->
-    	<resource-provider arguments="lock-timeout:10000;" class="lucee.commons.io.res.type.s3.S3ResourceProvider" scheme="s3"/>
+    	
     		
     	<!--
     	this providers uses the jcifs library. see http://jcifs.samba.org/
