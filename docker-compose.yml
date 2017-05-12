@@ -5,7 +5,7 @@ lucee:
   volumes:
     - /workbench/lucee-docker-workbench/config/lucee/lucee-server.xml:/opt/lucee/server/lucee-server/context/lucee-server.xml
     - /workbench/lucee-docker-workbench/config/lucee/lucee-web.xml.cfm:/opt/lucee/web/lucee-web.xml.cfm
-    - /workbench/lucee-docker-workbench/code:/var/www/farcry
+    - /workbench/lucee-docker-workbench/project:/var/www
     - /workbench/lucee-docker-workbench/logs/lucee:/opt/lucee/web/logs
     - /workbench/lucee-docker-workbench/logs/nginx:/var/log/nginx
     - /workbench/lucee-docker-workbench/logs/supervisor:/var/log/supervisor
