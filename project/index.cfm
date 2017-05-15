@@ -29,7 +29,7 @@
       <div class="row">
         <div class="col-sm-10 col-md-8 col-xl-6 offset-sm-1 offset-md-2 offset-xl-3">
           <h1 class="typography-display-4">Workbench</h1>
-          <p class="font-weight-light typography-title">Daemonite's Material UI is a cross-platform and fully responsive front-end interface based on Google Material Design, built using Bootstrap 4.</p>
+          <p class="font-weight-light typography-title">Docker workbench project template for a Lucee development pipeline; export files to use as the base for Lucee development in a containerised world.</p>
           <p>
             <a class="btn btn-lg btn-secondary" data-toggle="modal" href="#doc_modal">Download Material</a>
             <a class="btn btn-lg bg-faded" href="gh-pages/components/cards/index.html">Documentation</a>
